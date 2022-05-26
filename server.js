@@ -15,9 +15,66 @@ const server = http.createServer((req, res) => {
 // Set header content type html
     res.setHeader('content-type', 'text/html');
 
+
+    //Set up a routing system
+
+    let path = './views/';
+        switch(req.url) {
+            case '/':
+                path += 'index.html';
+                res.statusCode = 200;
+                break;
+            case '/about':
+                path += 'about.html';
+                res.statusCode = 200;
+                break;
+            case '/about-us':
+                res.statusCode = 301;
+                res.setHeader('Location', '/about');
+                break;
+            case '/contact':
+                path += 'contact.html';
+                res.statusCode = 200;
+                break;
+            case '/login':
+                path += 'login.html';
+                res.statusCode = 200;
+                break;
+            case '/profile':
+                path += 'profile.html';
+                res.statusCode = 200;
+                break;
+            case '/register':
+                path += 'register.html';
+                res.statusCode = 200;
+                break;
+            default:
+                path += '404.html';
+                res.statusCode = 404;
+                break;
+        }
+
+    // let path = './views/';
+    // switch(req.url) {
+    //     case '/':
+    //         path += 'index.html';
+    //         break;
+    //     case '/about':
+    //         path += 'about.html';
+    //         break;
+    //     case '/contact':
+    //         path += 'contact.html';
+    //         break;
+    //     default:
+    //         path += '404.html'
+    //         break;
+    // }
+
+
+
 //Send an html file
 
-fs.readFile('./views/index.html', (err, data) => {
+fs.readFile(path, (err, data) => {
     if (err) {
         console.log(err);
         res.end();
