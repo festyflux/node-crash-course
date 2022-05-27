@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+<body>
+
+    <nav>
+        <div class=" site-title">
+            <a href="/"><h1>Super Blog</h1></a>
+            <p>Here's my super blog!</p>
+        </div>
+        <ul>
+            <li><a href="/">Blogs</a></li>
+            <li><a href="/about">404</a></li>
+            <li><a href="/blogs/create">New Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="not-found-content">
+        OOPS, page not found :)
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>
